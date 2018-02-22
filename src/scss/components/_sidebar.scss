@@ -1,0 +1,101 @@
+﻿@import "../theme/variables";
+html, body, #wrapper{
+    height: 100%;
+    overflow: hidden;
+}
+
+#wrapper{
+    display: flex;
+}
+
+// sidebar
+.sidebar {
+    opacity: 0;
+    overflow-x: hidden;
+    top: 56px;
+    transition: all 300ms ease  ;
+    z-index: 5;
+    border-right: 1px solid $gray-lightest;
+    transform: translate3d(-280px, 0px, 0px);
+    width: 0;
+}
+
+.sidebar ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.content{
+    flex-grow: 1;
+    height: calc(100% - 40px);
+    overflow-x: hidden;
+}
+
+.toggle-nav{
+    margin-left: 20px;
+}
+
+.sidebar li a:focus, .sidebar li a:active{
+      outline: none;
+} 
+
+.menu > li > a {
+    color: #4c4c4c;
+    display: block;
+    font-weight: 500;
+    padding: 14px 20px 14px 20px;
+    text-decoration: none;
+    position: relative;
+}
+
+
+.sub-menu ul > li > a {
+  color: #7f7f7f;
+  display: block;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 20px 8px 50px;
+}
+
+.sub-menu ul > li > a.active, .sub-menu ul > li > a:hover {
+  color: #000;
+}
+
+.sub-menu ul{
+    display: none;
+}
+
+.sub-menu.toggled > ul{
+    display: block;
+} 
+
+.sidebar .active a:hover{
+    color: #fff;
+}
+
+.sidebar .active a, .sidebar .active a:hover{
+    background-color: $brand-primary;
+    color: #fff;
+    font-weight: bold;
+}
+
+.menu-arrow{
+    float: right;
+    position: relative;
+    top: 4px;
+    transition: transform 0.45s ease;
+}
+
+.sub-menu.toggled .menu-arrow{    
+    transform: rotate(90deg);
+}
+
+.sidebar.toggled {
+    opacity: 1;
+    width: 280px;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+
+
