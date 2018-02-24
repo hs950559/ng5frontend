@@ -1,0 +1,92 @@
+<h1>Template Driven Form</h1>
+{{ f.value | json }}
+<form #f="ngForm" (ngSubmit)="ontdfSubmit(f.value)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name" required minlength="3" pattern="^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$"
+      ngModel #name="ngModel" [ngClass]="{'is-invalid': name.dirty && name.invalid}">
+    <div class="form-text text-muted">
+      (allowing Alphabets, Dots, Spaces)
+    </div>
+    <div *ngIf="name.dirty && name.invalid" [ngClass]="{'invalid-feedback': name.dirty && name.invalid}">
+      <p *ngIf='name.errors.required'>Name is required</p>
+      <p *ngIf='name.errors.minlength'>Min 3 char please</p>
+      <p *ngIf='name.errors.pattern'>Follow pattern</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" name="email" email ngModel #email="ngModel" [ngClass]="{'is-invalid': email.dirty && email.invalid}">
+    <div *ngIf="email.dirty && email.invalid" [ngClass]="{'invalid-feedback': email.dirty && email.invalid}">
+      <p *ngIf='email.errors.email'>Not a valid Email</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="contactMethods">Contact Methods</label>
+    <select class="form-control" id="contactMethods" name="contactMethods" ngModel>
+      <option value=""></option>
+      <option [ngValue]="method" *ngFor="let method of contactMethods">{{ method.name }}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea class="form-control" id="comment" rows="3" name="comment" ngModel></textarea>
+  </div>
+  <div ngModelGroup="address">
+    <h2>My Address
+      <small class="text-muted">(ngModelGroup)</small>
+    </h2>
+    <div class="form-group">
+      <label for="primary">Primary</label>
+      <input type="text" class="form-control" id="primary" name="primary" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="secondary">Secondary</label>
+      <input type="text" class="form-control" id="secondary" name="secondary" ngModel>
+    </div>
+  </div>
+  <!-- <div class="form-group">
+    <h2>Skill Set</h2>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="skills[]" value="Java" ngModel> Java
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="skills[]" value="'PHP'" ngModel> PHP
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="skills[]" value="'JavaScript'" ngModel> JavaScript
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="skills[]" value="'CSS3'" ngModel> CSS3
+      </label>
+    </div>
+  </div> -->
+  <div class="form-group">
+    <h2>Gender</h2>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="gender" value="male" ngModel> Male
+      </label>
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="gender" value="female" ngModel> Female
+      </label>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox" name="isSubscribed" ngModel> Is Subscribed
+      </label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Add User</button>
+</form>

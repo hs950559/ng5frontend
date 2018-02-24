@@ -4,11 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { CardComponent } from './card/card.component';
+import { FormatInputDirective } from './format-input.directive';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CardComponent,
+    FormatInputDirective
   ],
   imports: [
     BrowserModule,

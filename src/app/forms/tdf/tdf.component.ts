@@ -1,0 +1,25 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-tdf',
+  templateUrl: './tdf.component.html',
+  styleUrls: ['./tdf.component.scss']
+})
+export class TdfComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  contactMethods = [
+    { id: 1, name: 'phone' },
+    { id: 2, name: 'email' },
+    { id: 3, name: 'Fax' }
+  ];
+
+  ontdfSubmit(value) {
+    console.log(value);
+  }
+
+}
