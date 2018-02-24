@@ -40,5 +40,19 @@
       <p *ngIf='email.errors.email'>Not a valid Email</p>
     </div> -->
   </div>
+  <div formGroupName="address">
+    <h2>My Address
+      <small class="text-muted">(ngModelGroup)</small>
+    </h2>
+    <div class="form-group">
+      <label for="primary">Primary</label>
+      <input type="text" class="form-control" id="primary" name="primary" formControlName="primary">
+    </div>
+    <div class="form-group">
+      <label for="secondary">Secondary</label>
+      <input type="text" class="form-control" id="secondary" name="secondary" formControlName="secondary">
+    </div>
+  </div>
+
   <button type="submit" class="btn btn-primary" [disabled]="mdfForm.invalid">Add User</button>
 </form>
