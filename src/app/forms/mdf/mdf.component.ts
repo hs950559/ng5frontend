@@ -28,6 +28,12 @@ export class MdfComponent implements OnInit {
   }
 
   onmdfSubmit() {
+    this.mdfForm.setErrors({
+      invalidLogin: true
+    });
+    setTimeout(() => {
+      this.mdfForm.setErrors(null);
+    }, 2000);
     console.log(this.mdfForm.value);
   }
 }
