@@ -9,4 +9,21 @@ export class UsernameValidators {
 
         return null;
     }
+
+    static shouldBeUnique(control: AbstractControl): Promise<ValidationErrors | null> {
+        return new Promise((resolve, reject) => {
+            setTimeout(function () {
+                if (control.value === 'hemant') {
+                    resolve({
+                        usernameTaken: true
+                    });
+                    console.log(control.value)
+                } else {
+                    console.log('In else ', control.value)
+
+                    resolve(null);
+                }
+            }, 2000);
+        });
+    }
 }

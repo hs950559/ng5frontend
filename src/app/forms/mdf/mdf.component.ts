@@ -13,7 +13,7 @@ export class MdfComponent implements OnInit {
 
   ngOnInit() {
     this.mdfForm = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), UsernameValidators.cannotContainSpace]),
+      username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), UsernameValidators.cannotContainSpace], UsernameValidators.shouldBeUnique),
       email: new FormControl('', [Validators.required, Validators.email]),
       pwd: new FormControl('')
     });

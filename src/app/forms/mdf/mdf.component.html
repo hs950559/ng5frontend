@@ -7,11 +7,15 @@
     <div class="form-text text-muted">
       (allowing Alphabets, Dots, Spaces)
     </div>
+    <div class="form-text text-muted">
+      To try async validation type "hemant"
+    </div>
     <div *ngIf="username.dirty && username.invalid" [ngClass]="{'invalid-feedback': username.dirty && username.invalid}">
       <p *ngIf='username.errors.required'>Name is required</p>
       <p *ngIf='username.errors.minlength'>Min 3 char please</p>
       <p *ngIf='username.errors.pattern'>Follow pattern</p>
       <p *ngIf='username.errors.cannotContainSpace'>Username cannot contain space</p>
+      <p *ngIf='username.errors.usernameTaken'>Username already taken</p>
     </div>
   </div>
   <div class="form-group">
