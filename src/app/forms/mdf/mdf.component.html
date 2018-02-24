@@ -46,7 +46,10 @@
     </h2>
     <div class="form-group">
       <label for="primary">Primary</label>
-      <input type="text" class="form-control" id="primary" name="primary" formControlName="primary">
+      <input type="text" class="form-control" id="primary" name="primary" formControlName="primary" [ngClass]="{'is-invalid': primary.dirty && primary.invalid}">
+      <div *ngIf="primary.dirty && primary.invalid" [ngClass]="{'invalid-feedback': primary.dirty && primary.invalid}">
+        <p *ngIf='primary.errors.required'>Primary Address is required</p>
+      </div>
     </div>
     <div class="form-group">
       <label for="secondary">Secondary</label>

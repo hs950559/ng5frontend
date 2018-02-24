@@ -17,7 +17,7 @@ export class MdfComponent implements OnInit {
       email: new FormControl('', [Validators.required, Validators.email]),
       pwd: new FormControl(''),
       address: new FormGroup({
-        primary: new FormControl(''),
+        primary: new FormControl('', Validators.required),
         secondary: new FormControl(''),
       })
     });
@@ -29,6 +29,10 @@ export class MdfComponent implements OnInit {
 
   get email() {
     return this.mdfForm.get('email');
+  }
+
+  get primary() {
+    return this.mdfForm.get('address.primary');
   }
 
   onmdfSubmit() {
