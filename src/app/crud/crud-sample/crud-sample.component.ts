@@ -13,10 +13,22 @@ export class CrudSampleComponent implements OnInit {
 
   }
 
-  getPosts(){
+  getPosts() {
     this.crudService.getPosts()
       .subscribe((res) => {
          this.posts = res;
       });
+  }
+
+  createPost(post){
+    this.crudService.createPost(post)
+      .subscribe((res) => {
+        this.posts.unshift(res);
+      });
+    console.log(post);
+  }
+
+  removePost(post) {
+
   }
 }

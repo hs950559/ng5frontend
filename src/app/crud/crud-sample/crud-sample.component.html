@@ -3,11 +3,12 @@
     <h1>Get Posts</h1>
 
     <table class="table table-bordered table-responsive mt-2">
-      <thead class="thead-inverse">
+      <thead class="thead-dark">
         <tr>
           <th>Id</th>
           <th>Title</th>
           <th>Body</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -15,10 +16,28 @@
           <td>{{ post.id}}</td>
           <td>{{ post.title}}</td>
           <td>{{ post.body}}</td>
+          <td>
+            <a [routerLink]="[post.id, 'edit']" class="btn btn-primary">Edit</a>
+            <button class="btn btn-danger" (click)="removePost(post)"></button>
+          </td>
         </tr>
       </tbody>
     </table>
     <button class="btn btn-secondary mt-2" (click)="getPosts()">Get Post From JSONPlaceholder Server</button>
   </div>
-  <div class="col-sm-6"></div>
+  <div class="col-sm-6">
+    <h1>Create Post</h1>
+    {{ f.value | json }}
+    <form #f="ngForm" (ngSubmit)="createPost(f.value)">
+      <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" name="title" ngModel>
+      </div>
+      <div class="form-group">
+          <label for="body">Body</label>
+          <textarea rows="3" class="form-control" id="body" name="body" ngModel></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </div>
 </div>
