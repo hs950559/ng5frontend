@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormsRoutingModule } from './forms-routing.module';
 import { TdfComponent } from './tdf/tdf.component';
 import { MdfComponent } from './mdf/mdf.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
   imports: [
@@ -13,6 +14,6 @@ import { MdfComponent } from './mdf/mdf.component';
     ReactiveFormsModule,
     FormsRoutingModule
   ],
-  declarations: [TdfComponent, MdfComponent]
+  declarations: [TdfComponent, MdfComponent, ChangePasswordComponent]
 })
 export class TdfFormsModule { }

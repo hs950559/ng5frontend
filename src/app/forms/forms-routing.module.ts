@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { TdfComponent } from './tdf/tdf.component';
 import { MdfComponent } from './mdf/mdf.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 const routes: Routes = [{
   path: '',
@@ -13,6 +14,10 @@ const routes: Routes = [{
     {
       path: 'mdf',
       component: MdfComponent
+    },
+    {
+      path: 'change-password',
+      component: ChangePasswordComponent
     }
   ]
 }];
