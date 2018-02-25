@@ -57,5 +57,22 @@
     </div>
   </div>
 
+  <div class="form-group">
+    <h2>Add Skill</h2>
+    <div class="form-row align-items-center">
+
+      <div class="col-auto">
+        <input type="text" class="form-control mb-2" placeholder="Skill Name" #skill>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-primary mb-2" (click)="addSkill(skill)">Add Skill</button>
+      </div>
+    </div>
+
+    <ul class="list-group w-25">
+      <li class="list-group-item" *ngFor="let skill of skills.controls">{{ skill.value }}</li>
+    </ul>
+  </div>
+
   <button type="submit" class="btn btn-primary" [disabled]="mdfForm.invalid">Add User</button>
 </form>

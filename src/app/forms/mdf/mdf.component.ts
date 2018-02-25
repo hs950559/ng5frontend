@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
 import { UsernameValidators } from '../../common/validators/username.validators';
 
 @Component({
@@ -19,7 +19,8 @@ export class MdfComponent implements OnInit {
       address: new FormGroup({
         primary: new FormControl('', Validators.required),
         secondary: new FormControl(''),
-      })
+      }),
+      skills: new FormArray([])
     });
   }
 
@@ -33,6 +34,16 @@ export class MdfComponent implements OnInit {
 
   get primary() {
     return this.mdfForm.get('address.primary');
+  }
+
+  get skills() {
+    return this.mdfForm.get('skills') as FormArray;
+  }
+
+  addSkill(skill: HTMLInputElement) {
+    console.log(skill.value);
+    this.skills.push(new FormControl(skill.value));
+    skill.value = '';
   }
 
   onmdfSubmit() {
