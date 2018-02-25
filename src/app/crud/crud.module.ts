@@ -7,6 +7,7 @@ import { CrudSampleComponent } from './crud-sample/crud-sample.component';
 import { CrudSampleService } from './crud-sample/crud-sample.service';
 import { EditPostComponent } from './crud-sample/edit-post/edit-post.component';
 import { AppErrorHandler } from '../app-error-handler';
+import { DataService } from '../services/data.service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { AppErrorHandler } from '../app-error-handler';
     FormsModule
   ],
   declarations: [CrudSampleComponent, EditPostComponent],
-  providers: [CrudSampleService, {provide: ErrorHandler, useClass: AppErrorHandler}]
+  providers: [DataService, CrudSampleService, {provide: ErrorHandler, useClass: AppErrorHandler}]
 })
 export class CrudModule { }

@@ -18,9 +18,9 @@ export class EditPostComponent implements OnInit {
   }
 
   updatePost(post) {
-    this.crudService.updatePost(this.post)
+    this.crudService.update({id: this.post.id, title: 'I am kool'})
       .subscribe((res) => {
-            this.post = res;
+          this.post = res;
       });
   }
 }

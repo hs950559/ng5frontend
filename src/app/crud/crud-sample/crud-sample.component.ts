@@ -14,14 +14,14 @@ export class CrudSampleComponent implements OnInit {
   }
 
   getPosts() {
-    this.crudService.getPosts()
+    this.crudService.getAll()
       .subscribe((res) => {
          this.posts = res;
       });
   }
 
   createPost(post){
-    this.crudService.createPost(post)
+    this.crudService.create(post)
       .subscribe((res) => {
         this.posts.unshift(res);
       });
@@ -29,7 +29,7 @@ export class CrudSampleComponent implements OnInit {
   }
 
   removePost(post) {
-    this.crudService.removePost(post)
+    this.crudService.remove(post)
       .subscribe((res) => {
          const postIndex = this.posts.indexOf(post);
          this.posts.splice(postIndex, 1);
