@@ -10,7 +10,7 @@ export class CrudSampleComponent implements OnInit {
   constructor(private crudService: CrudSampleService) { }
 
   ngOnInit() {
-
+    this.getPosts();
   }
 
   getPosts() {
