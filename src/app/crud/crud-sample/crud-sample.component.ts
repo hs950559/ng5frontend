@@ -29,6 +29,10 @@ export class CrudSampleComponent implements OnInit {
   }
 
   removePost(post) {
-
+    this.crudService.removePost(post)
+      .subscribe((res) => {
+         const postIndex = this.posts.indexOf(post);
+         this.posts.splice(postIndex, 1);
+      });
   }
 }

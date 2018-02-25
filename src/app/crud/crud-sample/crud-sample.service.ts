@@ -19,4 +19,8 @@ export class CrudSampleService {
     console.log(post);
     return this.http.patch(`${this.BASE_URL}/${post.id}`,  { title: 'Kool'});
   }
+
+  removePost(post) {
+    return this.http.delete(`${this.BASE_URL}/${post.id}`);
+  }
 }
