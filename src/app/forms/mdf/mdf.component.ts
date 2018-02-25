@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { UsernameValidators } from '../../common/validators/username.validators';
 
 @Component({
@@ -9,19 +9,29 @@ import { UsernameValidators } from '../../common/validators/username.validators'
 export class MdfComponent implements OnInit {
   mdfForm: FormGroup;
 
-  constructor() { }
+  constructor(fb: FormBuilder) {
+    this.mdfForm = fb.group({
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.pattern('^[A-Za-zs]{1,}[.]{0,1}[A-Za-zs]{0,}$'),
+          UsernameValidators.cannotContainSpace
+        ],
+        UsernameValidators.shouldBeUnique
+      ],
+      email: ['', [Validators.required, Validators.email]],
+      pwd: [],
+      address: fb.group({
+        primary: ['', Validators.required],
+        secondary: []
+      }),
+      skills: fb.array([])
+    });
+  }
 
   ngOnInit() {
-    this.mdfForm = new FormGroup({
-      username: new FormControl('', [Validators.required, Validators.minLength(3), Validators.pattern('^[A-Za-z\s]{1,}[\.]{0,1}[A-Za-z\s]{0,}$'), UsernameValidators.cannotContainSpace], UsernameValidators.shouldBeUnique),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      pwd: new FormControl(''),
-      address: new FormGroup({
-        primary: new FormControl('', Validators.required),
-        secondary: new FormControl(''),
-      }),
-      skills: new FormArray([])
-    });
   }
 
   get username() {
@@ -41,7 +51,6 @@ export class MdfComponent implements OnInit {
   }
 
   addSkill(skill: HTMLInputElement) {
-    console.log(skill.value);
     this.skills.push(new FormControl(skill.value));
     skill.value = '';
   }
