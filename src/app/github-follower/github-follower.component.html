@@ -10,6 +10,11 @@
   </div>
 </form>
 
+<div class="card card-body">
+  <h2>Programatic Navigation</h2>
+  <button class="btn btn-primary" (click)="gotoProfile()">Go to Profile</button>
+</div>
+
 <ul class="list-unstyled">
   <li class="media mb-4" *ngFor="let follower of followers">
     <img class="mr-3 img-thumbnail" [src]="follower.avatar_url" alt="Generic placeholder image">

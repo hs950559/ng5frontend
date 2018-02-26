@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest } from 'rxjs/observable/combineLatest';
-
+import { GithubFollowerService } from '../github-follower.service';
+import { switchMap } from 'rxjs/operators/switchMap';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -27,7 +28,7 @@ export class ProfileComponent implements OnInit {
     'type': 'User',
     'site_admin': false
   };
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private githubService: GithubFollowerService) { }
 
   ngOnInit() {
     combineLatest(this.route.paramMap, this.route.queryParamMap)
@@ -40,6 +41,9 @@ export class ProfileComponent implements OnInit {
 
         console.log(id, username);
         console.log(page, order);
+        // this.githubService.getAll({id, username, page, order})
+        //   .subscribe(() => {
+        //   })
       });
 
     console.log(this.route.snapshot.paramMap.get('id'));

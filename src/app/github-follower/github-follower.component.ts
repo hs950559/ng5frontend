@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { GithubFollowerService } from './github-follower.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { GithubFollowerService } from './github-follower.service';
 export class GithubFollowerComponent implements OnInit {
   followers;
 
-  constructor(private githubService: GithubFollowerService) { }
+  constructor(private router: Router, private githubService: GithubFollowerService) { }
 
   ngOnInit() {
     this.githubService.getAll()
@@ -19,5 +20,14 @@ export class GithubFollowerComponent implements OnInit {
 
   findFollower(username){
     console.log(username);
+  }
+
+  gotoProfile(){
+    this.router.navigate(['github-follower', '1555350', 'myhduck'], {
+      queryParams: {
+        page: 100,
+        order: 'latest'
+      }
+    });
   }
 }
