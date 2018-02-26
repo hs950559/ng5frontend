@@ -1,0 +1,14 @@
+<div class="card w-50">
+  <div class="card-header">
+    {{ follower.login }} Profile
+  </div>
+  <img class="card-img-top" [src]="follower.avatar_url" alt="Card image cap">
+  <div class="card-body">
+    <h4 class="card-title">Card title</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <div class="card-body">
+    <a href="#" class="card-link">{{ follower.html_url }}</a>
+    <a [routerLink]="['/github-follower', '1234', 'hs950559']" class="card-link">Next</a>
+  </div>
+</div>
