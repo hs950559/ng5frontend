@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { combineLatest } from 'rxjs/observable/combineLatest';
 
 @Component({
   selector: 'app-profile',
@@ -29,6 +30,18 @@ export class ProfileComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    combineLatest(this.route.paramMap, this.route.queryParamMap)
+      .subscribe((combined) => {
+        const id = combined[0].get('id');
+        const username = combined[0].get('username');
+
+        const page = combined[1].get('page');
+        const order = combined[1].get('order');
+
+        console.log(id, username);
+        console.log(page, order);
+      });
+
     console.log(this.route.snapshot.paramMap.get('id'));
     console.log(this.route.snapshot.paramMap.get('username'));
     // this.route.paramMap.subscribe((param) => {
