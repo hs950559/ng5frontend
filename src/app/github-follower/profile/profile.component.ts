@@ -34,6 +34,14 @@ export class ProfileComponent implements OnInit {
     // this.route.paramMap.subscribe((param) => {
     //   console.log(param.get('id'));
     // });
+
+    console.log(this.route.snapshot.queryParamMap.get('page'));
+    console.log(this.route.snapshot.queryParamMap.get('order'));
+
+    // this.route.queryParamMap.subscribe((query) => {
+    //   console.log(query.get('page'));
+    //   console.log(query.get('order'));
+    // });
   }
 
 }

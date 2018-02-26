@@ -8,7 +8,7 @@ import { GithubFollowerService } from './github-follower.service';
 export class GithubFollowerComponent implements OnInit {
   followers;
 
-  constructor( private githubService: GithubFollowerService) { }
+  constructor(private githubService: GithubFollowerService) { }
 
   ngOnInit() {
     this.githubService.getAll()
