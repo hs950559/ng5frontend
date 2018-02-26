@@ -1,0 +1,21 @@
+<h1>Find Follower (not working now)</h1>
+<form #f="ngForm" (ngSubmit)="findFollower(f.value)">
+  <div class="form-row align-items-center">
+    <div class="col-auto">
+      <input type="text" class="form-control mb-2" placeholder="Input username" name="username" ngModel>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-2">Find Follower</button>
+    </div>
+  </div>
+</form>
+
+<ul class="list-unstyled">
+  <li class="media mb-4" *ngFor="let follower of followers">
+    <img class="mr-3 img-thumbnail" [src]="follower.avatar_url" alt="Generic placeholder image">
+    <div class="media-body align-self-center">
+      <h5 class="mt-0 mb-1">{{ follower.login }}</h5>
+      <a [href]="follower.html_url">{{ follower.html_url }}</a>
+    </div>
+  </li>
+</ul>
