@@ -10,10 +10,14 @@ import { AuthService } from './auth/auth.service';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { jwtOptionsFactory } from './auth/token.service';
 import { AuthGuard } from './services/auth-guard';
+import { AdminAuthGuard } from './admin/admin-auth.guard';
+import { NoAccessComponent } from './no-access/no-access.component';
+
 @NgModule({
   declarations: [
     AppComponent,
-    FormatInputDirective
+    FormatInputDirective,
+    NoAccessComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { AuthGuard } from './services/auth-guard';
       }
     })
   ],
-  providers: [ AuthService, AuthGuard ],
+  providers: [ AuthService, AuthGuard, AdminAuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

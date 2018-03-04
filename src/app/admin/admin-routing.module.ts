@@ -3,13 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent } from './admin.component';
 
 const routes: Routes = [{
-  path: '',
-  children: [
-    {
-      path: '',
-      component: AdminComponent
-    }
-  ]
+    path: '',
+    component: AdminComponent,
+    pathMatch: 'full'
 }];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
