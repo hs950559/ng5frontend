@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
   authUrl = 'https://hkauthapi.herokuapp.com/users';
 
-  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) { }
+  constructor(private http: HttpClient, private router: Router, private jwtHelper: JwtHelperService) { }
 
   login(credentials) {
     return this.http.post(this.authUrl + '/signin', credentials)
@@ -25,6 +26,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
+    this.router.navigate(['/auth/login']);
   }
 
   isLoggedin() {

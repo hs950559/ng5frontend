@@ -9,7 +9,7 @@ import { FormatInputDirective } from './format-input.directive';
 import { AuthService } from './auth/auth.service';
 import { JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { jwtOptionsFactory } from './auth/token.service';
-
+import { AuthGuard } from './services/auth-guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,7 @@ import { jwtOptionsFactory } from './auth/token.service';
       }
     })
   ],
-  providers: [ AuthService ],
+  providers: [ AuthService, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

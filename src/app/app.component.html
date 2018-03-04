@@ -37,9 +37,9 @@
       <li *ngIf="authService.isLoggedin()" class="navbar-text">
           Welcome! {{ authService.currentUser.iss }}
       </li>
-      <!-- <li *ngIf="authService.isLoggedin()" class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="auth/admin">Admin</a>
-      </li> -->
+      <li *ngIf="authService.isLoggedin()" class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="admin">Admin</a>
+      </li>
       <li *ngIf="!authService.isLoggedin()" class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="auth/login">Login</a>
       </li>
