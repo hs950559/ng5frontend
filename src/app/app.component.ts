@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,30 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
-
-  get x(){
-    return this.title;
-  }
-
-  set x(title){
-    this.title = title;
-  }
-  myTest(){
-    enum Colors { Red, Green=4, Blue};
-    let myName;
-    myName = 'Hemant';
-    console.log((<string>myName).toUpperCase()); 
-  }
-
-  constructor(){
+  constructor(private authService: AuthService) {
     // this.myTest();
   }
 }
-
-let t = new AppComponent();
-
-console.log(t.x);
-t.x = 'pappa';
-console.log(t.x);
-
