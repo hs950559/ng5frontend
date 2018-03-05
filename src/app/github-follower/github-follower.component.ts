@@ -18,11 +18,11 @@ export class GithubFollowerComponent implements OnInit {
       });
   }
 
-  findFollower(username){
+  findFollower(username) {
     console.log(username);
   }
 
-  gotoProfile(){
+  gotoProfile() {
     this.router.navigate(['github-follower', '1555350', 'myhduck'], {
       queryParams: {
         page: 100,

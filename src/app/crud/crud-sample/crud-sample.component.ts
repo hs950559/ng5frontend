@@ -20,7 +20,7 @@ export class CrudSampleComponent implements OnInit {
       });
   }
 
-  createPost(post){
+  createPost(post) {
     this.crudService.create(post)
       .subscribe((res) => {
         this.posts.unshift(res);

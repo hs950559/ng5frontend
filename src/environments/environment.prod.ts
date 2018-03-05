@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  appName: 'Prod Env',
+  navbarColor: '#3FB618'
 };

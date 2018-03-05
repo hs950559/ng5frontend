@@ -5,6 +5,6 @@
 
 export const environment = {
   production: false,
-  appName: 'Dev Env',
-  navbarColor: '#eceff1'
+  appName: 'Test Env',
+  navbarColor: '#FF7518'
 };

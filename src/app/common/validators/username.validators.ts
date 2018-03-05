@@ -1,11 +1,12 @@
-import { AbstractControl, ValidationErrors } from "@angular/forms";
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 export class UsernameValidators {
     static cannotContainSpace(control: AbstractControl): ValidationErrors | null {
-        if ((control.value as string).indexOf(' ') !== -1)
+        if ((control.value as string).indexOf(' ') !== -1) {
             return {
                 cannotContainSpace: true
             };
+        }
 
         return null;
     }
@@ -17,9 +18,9 @@ export class UsernameValidators {
                     resolve({
                         usernameTaken: true
                     });
-                    console.log(control.value)
+                    console.log(control.value);
                 } else {
-                    console.log('In else ', control.value)
+                    console.log('In else ', control.value);
 
                     resolve(null);
                 }
