@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:gh": "ng build --prod --base-href='https://hs950559.github.io/ng5frontend/' && sudo ngh"
+    "deploy:gh": "ng build --prod --base-href='https://hs950559.github.io/ng5frontend/' && sudo ngh",
+    "deploy:firebase": "ng build --prod && firebase deploy"
   },
   "private": true,
   "dependencies": {
