@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class DataService {
-  // private BASE_URL = 'https://sjsonplaceholder.typicode.com/posts';
+  // private BASE_URL = 'https://jsonplaceholder.typicode.com/posts';
 
   constructor(private url: string, private http: HttpClient) { }
 

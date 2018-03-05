@@ -1,5 +1,7 @@
 export function jwtOptionsFactory() {
   return {
+    // headerName: 'AuthorizatioKOOl',
+    authScheme:  '',
     tokenGetter: () => {
       return localStorage.getItem('token');
     },

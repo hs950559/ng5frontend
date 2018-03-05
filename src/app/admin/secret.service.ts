@@ -3,8 +3,8 @@ import { DataService } from '../services/data.service';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class GithubFollowerService extends DataService {
+export class SecretService extends DataService {
   constructor(http: HttpClient) {
-    super('https://api.github.com/users/octocat/followers', http);
+    super('https://hkauthapi.herokuapp.com/users/secret', http);
    }
 }
