@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'auth', loadChildren: 'app/auth/auth.module#AuthModule' },
   { path: 'github-follower', loadChildren: 'app/github-follower/github-follower.module#GithubFollowerModule' },
   { path: 'admin', loadChildren: 'app/admin/admin.module#AdminModule', canActivate: [ AuthGuard, AdminAuthGuard ] }
+  { path: 'books', loadChildren: 'app/books/books.module#BooksModule' }
 ];
 
 @NgModule({
